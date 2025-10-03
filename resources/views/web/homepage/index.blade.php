@@ -142,7 +142,6 @@
         .brand-item img {
             max-width: 150px;
             max-height: 80px;
-            filter: grayscale(100%);
             transition: all 0.3s ease;
         }
         
@@ -401,29 +400,300 @@
                 font-size: 1.8rem;
             }
         }
+
+
+        .text-shadow {
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        }
+
+        .text-shadow-sm {
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+        }
+
+        .hero-slide h1 {
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .hero-slide p {
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+
+        .hero-slide a {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Navbar */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar-brand i {
+            font-size: 1.8rem;
+        }
+        
+        .navbar-nav .nav-link {
+            color: #333;
+            font-weight: 500;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .navbar-nav .nav-link:hover::after {
+            width: 80%;
+        }
+        
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .navbar-toggler {
+            border: none;
+            padding: 5px;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        .navbar-scrolled {
+            padding: 10px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container hero-content">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <h1 class="hero-title">H2Hand</h1>
-                    <p class="hero-subtitle">Solusi Lengkap untuk Kebutuhan ATK, Gadget Accessories, Peripheral Equipment, dan Bluetooth Speaker Berkualitas</p>
-                    <a href="#marketplace" class="btn cta-button cta-primary">
-                        <i class="fas fa-shopping-cart me-2"></i>Belanja Sekarang
-                    </a>
-                </div>
-                <div class="col-lg-5 text-center mt-5 mt-lg-0">
-                    <i class="fas fa-laptop-code" style="font-size: 15rem; opacity: 0.2;"></i>
-                </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-handshake"></i>
+                H2Hand
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sejarah">
+                            <i class="fas fa-info-circle me-1"></i>Tentang Kami
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#product">
+                            <i class="fas fa-envelope me-1"></i>Product
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#maps">
+                            <i class="fas fa-map-marker-alt me-1"></i>Maps
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="hero-slide d-flex align-items-center justify-content-center"
+                    style="background: url({{ asset('images/home/slide1.jpg') }}) center/cover no-repeat; height: 70vh;">
+                    <div class="text-center text-white px-4">
+                        <h1 class="display-3 fw-bold text-shadow mb-3">
+                            <span class="text-primary">H2Hand</span> Accessories <br> &amp; Gadget
+                        </h1>
+                        <p class="lead fw-light mb-4 text-shadow-sm">
+                            Temukan koleksi lengkap aksesoris gadget, perlengkapan kantor, dan produk teknologi 
+                            <span class="fw-bold text-warning">berkualitas</span> untuk mendukung aktivitas sehari-hari Anda.
+                        </p>
+                        <a href="#marketplace" class="btn btn-lg btn-primary shadow-lg px-4 py-2">
+                            <i class="fas fa-shopping-cart me-2"></i> Belanja Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="hero-slide d-flex align-items-center justify-content-center"
+                    style="background: url({{ asset('images/home/slide4.jpeg') }}) center/cover no-repeat; height: 70vh;">
+                    <div class="text-center text-white px-4">
+                        <h1 class="display-3 fw-bold text-shadow mb-3">
+                            <span class="text-primary">H2Hand</span> Accessories <br> &amp; Gadget
+                        </h1>
+                        <p class="lead fw-light mb-4 text-shadow-sm">
+                            Temukan koleksi lengkap aksesoris gadget, perlengkapan kantor, dan produk teknologi 
+                            <span class="fw-bold text-warning">berkualitas</span> untuk mendukung aktivitas sehari-hari Anda.
+                        </p>
+                        <a href="#marketplace" class="btn btn-lg btn-primary shadow-lg px-4 py-2">
+                            <i class="fas fa-shopping-cart me-2"></i> Belanja Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <div class="hero-slide d-flex align-items-center justify-content-center"
+                    style="background: url({{ asset('images/home/slide4.jpeg') }}) center/cover no-repeat; height: 70vh;">
+                    <div class="text-center text-white px-4">
+                        <h1 class="display-3 fw-bold text-shadow mb-3">
+                            <span class="text-primary">H2Hand</span> Accessories <br> &amp; Gadget
+                        </h1>
+                        <p class="lead fw-light mb-4 text-shadow-sm">
+                            Temukan koleksi lengkap aksesoris gadget, perlengkapan kantor, dan produk teknologi 
+                            <span class="fw-bold text-warning">berkualitas</span> untuk mendukung aktivitas sehari-hari Anda.
+                        </p>
+                        <a href="#marketplace" class="btn btn-lg btn-primary shadow-lg px-4 py-2">
+                            <i class="fas fa-shopping-cart me-2"></i> Belanja Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
     </section>
 
+
+    {{-- Sejarah --}}
+    <section id="sejarah" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+
+            <!-- Gambar Sejarah -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{{ asset('images/home/sejarah.jpg') }}" 
+                    alt="Sejarah H2Hand" 
+                    class="img-fluid rounded shadow">
+            </div>
+
+            <!-- Konten Sejarah -->
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-3">Sejarah H2Hand</h2>
+                <p class="text-muted fst-italic">Bermula dari Ketidakpastian, Berkembang dengan Semangat Baru</p>
+
+                <p>
+                Di tengah gelombang ketidakpastian yang dibawa oleh pandemi COVID-19 di tahun 2020, 
+                kami justru melihat sebuah peluang untuk tetap produktif dan membantu. 
+                Banyak orang harus beradaptasi, termasuk kami. Dengan segala keterbatasan gerak, 
+                kami memutuskan untuk memulai perjalanan kecil ini: <strong>H2Hand</strong>.
+                </p>
+
+                <p>
+                Awalnya, produk-produk yang kami pasarkan adalah speaker bluetooth premium second hand 
+                seperti <strong>Harman Kardon, Bose, JBL</strong>, dan lainnya. 
+                Karena itu kami mengambil nama <strong>H2Hand</strong> (Hoby second hand – kata <em>hoby</em> 
+                dari hobi kami bermusik, sedangkan <em>2 hand</em> dari speaker bluetooth second hand 
+                yang kami pasarkan). 
+                </p>
+
+                <p>
+                Ini hanyalah upaya untuk mengisi waktu dan menjalankan hobi: mendengarkan musik dari 
+                audio berkualitas, mengusir rasa sepi dan suntuk saat lockdown di rumah, serta tetap 
+                terhubung dengan komunitas.
+                </p>
+
+                <p>
+                Namun, kami segera menyadari bahwa kehadiran sebuah toko online bukan hanya tentang 
+                menjual produk, tetapi juga tentang memberikan kemudahan, keamanan berbelanja dari rumah, 
+                dan sedikit cahaya di masa yang menantang.
+                </p>
+
+                <p>
+                Dari pesanan pertama yang begitu membahagiakan hingga testimoni pelanggan yang terus 
+                memotivasi, kami tumbuh. Setiap klik, setiap pesanan, dan setiap ucapan terima kasih 
+                adalah bahan bakar semangat kami. Seiring berjalannya waktu, kami ingin lebih serius 
+                menyediakan kemudahan, kecepatan, keamanan belanja dari rumah, dan masuk ke dalam ranah 
+                baru produk yang kami pasarkan: <strong>stationery</strong> (peralatan tulis kantor & sekolah), 
+                <strong>gadget accessories</strong>, dan <strong>peripheral equipment</strong>.
+                </p>
+
+                <p>
+                Nama <strong>H2Hand</strong> kami maknai secara baru yaitu 
+                <em>Helping with 2 Hand</em> — yang artinya semangat kami membantu memenuhi kebutuhan 
+                setiap pelanggan secara mudah dan cepat, dilambangkan dengan dua tangan yang saling berjabatan.
+                </p>
+
+                <p class="fw-bold text-primary">
+                Hari ini, H2Hand hadir tidak hanya sebagai respons terhadap pandemi, 
+                tetapi sebagai komitmen untuk terus melayani Anda dengan produk berkualitas, 
+                layanan terpercaya, dan semangat ketahanan yang lahir di masa sulit.
+                </p>
+
+                <p class="mb-0"><em>Terima kasih telah menjadi bagian dari cerita kami.</em></p>
+            </div>
+
+            </div>
+        </div>
+        </section>
+
+
     <!-- Categories Section -->
-    <section class="category-section">
+    <section class="category-section" id="product">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title">Kategori Produk Kami</h2>
@@ -584,7 +854,7 @@
                                 <span class="price-discount">Rp 150.000</span>
                                 <span class="price-main">Rp 129.000</span>
                             </div>
-                            <a href="#marketplace" class="btn product-btn">
+                            <a href="https://www.tokopedia.com/h2hand-stationery" class="btn product-btn">
                                 <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
                             </a>
                         </div>
@@ -610,7 +880,7 @@
                                 <span class="price-discount">Rp 450.000</span>
                                 <span class="price-main">Rp 389.000</span>
                             </div>
-                            <a href="#marketplace" class="btn product-btn">
+                            <a href="https://www.tokopedia.com/h2hand-stationery" class="btn product-btn">
                                 <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
                             </a>
                         </div>
@@ -635,7 +905,7 @@
                             <div class="product-price">
                                 <span class="price-main">Rp 45.000</span>
                             </div>
-                            <a href="#marketplace" class="btn product-btn">
+                            <a href="https://www.tokopedia.com/h2hand-stationery" class="btn product-btn">
                                 <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
                             </a>
                         </div>
@@ -660,7 +930,7 @@
                                 <span class="price-discount">Rp 85.000</span>
                                 <span class="price-main">Rp 69.000</span>
                             </div>
-                            <a href="#marketplace" class="btn product-btn">
+                            <a href="https://www.tokopedia.com/h2hand-stationery" class="btn product-btn">
                                 <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
                             </a>
                         </div>
@@ -685,7 +955,7 @@
                                 <span class="price-discount">Rp 450.000</span>
                                 <span class="price-main">Rp 399.000</span>
                             </div>
-                            <a href="#marketplace" class="btn product-btn">
+                            <a href="https://www.tokopedia.com/h2hand-stationery" class="btn product-btn">
                                 <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
                             </a>
                         </div>
@@ -711,7 +981,7 @@
                                 <span class="price-discount">Rp 350.000</span>
                                 <span class="price-main">Rp 299.000</span>
                             </div>
-                            <a href="#marketplace" class="btn product-btn">
+                            <a href="https://www.tokopedia.com/h2hand-stationery" class="btn product-btn">
                                 <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
                             </a>
                         </div>
@@ -735,7 +1005,7 @@
                             <div class="product-price">
                                 <span class="price-main">Rp 25.000</span>
                             </div>
-                            <a href="#marketplace" class="btn product-btn">
+                            <a href="https://www.tokopedia.com/h2hand-stationery" class="btn product-btn">
                                 <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
                             </a>
                         </div>
@@ -761,7 +1031,7 @@
                                 <span class="price-discount">Rp 120.000</span>
                                 <span class="price-main">Rp 99.000</span>
                             </div>
-                            <a href="#marketplace" class="btn product-btn">
+                            <a href="https://www.tokopedia.com/h2hand-stationery" class="btn product-btn">
                                 <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
                             </a>
                         </div>
@@ -787,7 +1057,7 @@
                                 <span class="price-discount">Rp 120.000</span>
                                 <span class="price-main">Rp 99.000</span>
                             </div>
-                            <a href="#marketplace" class="btn product-btn">
+                            <a href="https://www.tokopedia.com/h2hand-stationery" class="btn product-btn">
                                 <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
                             </a>
                         </div>
@@ -813,7 +1083,7 @@
                                 <span class="price-discount">Rp 120.000</span>
                                 <span class="price-main">Rp 99.000</span>
                             </div>
-                            <a href="#marketplace" class="btn product-btn">
+                            <a href="https://www.tokopedia.com/h2hand-stationery" class="btn product-btn">
                                 <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
                             </a>
                         </div>
@@ -821,12 +1091,61 @@
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a href="#marketplace" class="btn cta-button" style="background: var(--primary-color); color: white; border: none;">
+                <a href="https://www.tokopedia.com/h2hand-stationery" class="btn cta-button" style="background: var(--primary-color); color: white; border: none;">
                     Lihat Semua Produk <i class="fas fa-arrow-right ms-2"></i>
                 </a>
             </div>
         </div>
     </section>
+
+    <section class="marketplace-section" id="marketplace">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title text-white">Kunjungi Toko Kami</h2>
+                <p class="section-subtitle text-white">Belanja mudah di marketplace favorit Anda</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 mx-auto">
+                    <div class="marketplace-card">
+                        <div class="marketplace-icon" style="color: #00AA5B;">
+                            <img src="tokopedia-logo.png" alt="Tokopedia" style="width:60px;">
+                        </div>
+                        <h3 class="marketplace-name">Tokopedia</h3>
+                        <p>Mulai dari sini</p>
+                        <a href="https://www.tokopedia.com/h2hand-stationery" class="marketplace-btn">
+                            <i class="fas fa-external-link-alt me-2"></i>Kunjungi Toko
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Maps -->
+    <section class="maps-section" id="maps">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="section-title">Lokasi Kami</h2>
+                <p class="section-subtitle">Temukan toko kami dengan mudah</p>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="map-container" style="width:100%; height:400px; border-radius:10px; overflow:hidden;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.4368941317257!2d110.43267329999999!3d-7.0752391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708eb67323717f%3A0x2b6a1808d0c36ec0!2sJl.%20Ulin%20Selatan%20V%20No.204%2C%20RT.005%2FRW.013%2C%20Padangsari%2C%20Kec.%20Banyumanik%2C%20Kota%20Semarang%2C%20Jawa%20Tengah%2050267!5e0!3m2!1sid!2sid!4v1759504451288!5m2!1sid!2sid" 
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Features Section -->
     <section class="features-section">
@@ -884,38 +1203,16 @@
                 <p class="section-subtitle text-white">Belanja mudah di marketplace favorit Anda</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-md-4 mx-auto">
                     <div class="marketplace-card">
-                        <div class="marketplace-icon" style="color: #EE4D2D;">
-                            <i class="fas fa-shopping-bag"></i>
-                        </div>
-                        <h3 class="marketplace-name">Shopee</h3>
-                        <p>Belanja dengan promo menarik</p>
-                        <a href="#" class="marketplace-btn">
-                            <i class="fas fa-external-link-alt me-2"></i>Kunjungi Toko
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="marketplace-card">
-                        <div class="marketplace-icon" style="color: #00AA5B;">
-                            <i class="fas fa-shopping-basket"></i>
+                        <div class="marketplace-icon mb-3">
+                        <img src="{{ asset('images/home/tokped.webp') }}" 
+                             alt="Tokopedia Logo" 
+                             style="width:200px; height:auto;">
                         </div>
                         <h3 class="marketplace-name">Tokopedia</h3>
                         <p>Mulai dari sini</p>
-                        <a href="#" class="marketplace-btn">
-                            <i class="fas fa-external-link-alt me-2"></i>Kunjungi Toko
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="marketplace-card">
-                        <div class="marketplace-icon" style="color: #F57224;">
-                            <i class="fas fa-store"></i>
-                        </div>
-                        <h3 class="marketplace-name">Lazada</h3>
-                        <p>Belanja online terpercaya</p>
-                        <a href="#" class="marketplace-btn">
+                        <a href="https://www.tokopedia.com/h2hand-stationery" class="marketplace-btn">
                             <i class="fas fa-external-link-alt me-2"></i>Kunjungi Toko
                         </a>
                     </div>
@@ -935,7 +1232,7 @@
                     <p class="text-white">Solusi lengkap untuk kebutuhan ATK, peripheral equipment, gadget accessories, natural latex products, dan bluetooth speaker berkualitas tinggi.</p>
                     <div class="d-flex gap-3">
                         <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/h2h.stationery/" target="_blak" class="text-white"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
                     </div>
@@ -953,11 +1250,7 @@
                 <div class="col-lg-2 col-md-6">
                     <h6 class="mb-3">Marketplace</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Shopee</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Tokopedia</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Bukalapak</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Lazada</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Blibli</a></li>
+                        <li><a href="https://www.tokopedia.com/h2hand-stationery" class="text-white text-decoration-none">Tokopedia</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6">
