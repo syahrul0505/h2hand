@@ -142,6 +142,7 @@
         .brand-item img {
             max-width: 150px;
             max-height: 80px;
+            filter: grayscale(100%);
             transition: all 0.3s ease;
         }
         
@@ -198,9 +199,145 @@
             transform: scale(1.05);
         }
         
-        .features-section {
+        .products-section {
             padding: 80px 0;
             background: white;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+        
+        .product-image {
+            background: #f8f9fa;
+            padding: 0;
+            text-align: center;
+            position: relative;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .product-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+            height: 48px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.5;
+        }
+        
+        .product-rating {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        
+        .product-rating i {
+            color: #FFC107;
+            font-size: 0.85rem;
+        }
+        
+        .rating-text {
+            color: #666;
+            font-size: 0.85rem;
+            margin-left: 8px;
+        }
+        
+        .product-price {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .price-discount {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.85rem;
+        }
+        
+        .price-main {
+            color: var(--accent-color);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .product-btn {
+            background: var(--primary-color);
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+        
+        .product-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+        }
+        
+        .features-section {
+            padding: 80px 0;
+            background: #f8f9fa;
         }
         
         .feature-box {
@@ -419,6 +556,278 @@
         </div>
     </section>
 
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Produk Pilihan</h2>
+                <p class="section-subtitle">Produk terlaris dan rekomendasi terbaik untuk Anda</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-badge">Best Seller</div>
+                        <div class="product-image">
+                            <img src="{{ asset('images/1.jpg') }}" class="img-fluid" alt="Logitech M190 Wireless Mouse">
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">Anker PowerCore 10000mAh</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-text">(4.5)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-discount">Rp 150.000</span>
+                                <span class="price-main">Rp 129.000</span>
+                            </div>
+                            <a href="#marketplace" class="btn product-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-badge" style="background: #FF6B6B;">Hot</div>
+                        <div class="product-image">
+                            <img src="{{ asset('images/2.jpeg') }}" class="img-fluid" alt="Charger 30 W">
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">Charger 30 W</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-text">(5.0)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-discount">Rp 450.000</span>
+                                <span class="price-main">Rp 389.000</span>
+                            </div>
+                            <a href="#marketplace" class="btn product-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-badge" style="background: #4CAF50;">New</div>
+                        <div class="product-image">
+                            <img src="{{ asset('images/3.jpeg') }}" class="img-fluid" alt="Jisulife">
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">Jisulife</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="rating-text">(4.0)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-main">Rp 45.000</span>
+                            </div>
+                            <a href="#marketplace" class="btn product-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="{{ asset('images/4.jpeg') }}" class="img-fluid" alt="8 in 1 hub with table stand">
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">8 in 1 hub with table stand</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-text">(4.5)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-discount">Rp 85.000</span>
+                                <span class="price-main">Rp 69.000</span>
+                            </div>
+                            <a href="#marketplace" class="btn product-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="{{ asset('images/5.jpeg') }}" class="img-fluid" alt=" 4 In 1 HDMI Switcher">
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title"> 4 In 1 HDMI Switcher</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-text">(5.0)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-discount">Rp 450.000</span>
+                                <span class="price-main">Rp 399.000</span>
+                            </div>
+                            <a href="#marketplace" class="btn product-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-badge" style="background: #FF6B6B;">Hot</div>
+                        <div class="product-image">
+                            <img src="{{ asset('images/6.jpeg') }}" class="img-fluid" alt="Anker PowerCore 10000mAh">
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">Logitech M190 Wireless Mouse</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-text">(4.5)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-discount">Rp 350.000</span>
+                                <span class="price-main">Rp 299.000</span>
+                            </div>
+                            <a href="#marketplace" class="btn product-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="{{ asset('images/7.jpeg') }}" class="img-fluid" alt="Audio Receiver bluetooth 5.0">
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">Audio Receiver bluetooth 5.0</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="rating-text">(4.0)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-main">Rp 25.000</span>
+                            </div>
+                            <a href="#marketplace" class="btn product-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-badge">Best Seller</div>
+                        <div class="product-image">
+                            <img src="{{ asset('images/8.jpeg') }}" class="img-fluid" alt="Vention DisplayPort Cable 2M">
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">Vention DisplayPort Cable 2M</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-text">(5.0)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-discount">Rp 120.000</span>
+                                <span class="price-main">Rp 99.000</span>
+                            </div>
+                            <a href="#marketplace" class="btn product-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-badge">Best Seller</div>
+                        <div class="product-image">
+                            <img src="{{ asset('images/9.jpeg') }}" class="img-fluid" alt="Vention DisplayPort Cable 2M">
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">Vention DisplayPort Cable 2M</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-text">(5.0)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-discount">Rp 120.000</span>
+                                <span class="price-main">Rp 99.000</span>
+                            </div>
+                            <a href="#marketplace" class="btn product-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-badge">Best Seller</div>
+                        <div class="product-image">
+                            <img src="{{ asset('images/10.jpeg') }}" class="img-fluid" alt="Vention DisplayPort Cable 2M">
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">Vention DisplayPort Cable 2M</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-text">(5.0)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="price-discount">Rp 120.000</span>
+                                <span class="price-main">Rp 99.000</span>
+                            </div>
+                            <a href="#marketplace" class="btn product-btn">
+                                <i class="fas fa-shopping-cart me-2"></i>Lihat Produk
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#marketplace" class="btn cta-button" style="background: var(--primary-color); color: white; border: none;">
+                    Lihat Semua Produk <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section class="features-section">
         <div class="container">
@@ -604,7 +1013,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.category-card, .feature-box, .marketplace-card').forEach(el => {
+        document.querySelectorAll('.category-card, .feature-box, .marketplace-card, .product-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'all 0.6s ease';
