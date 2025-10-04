@@ -1235,6 +1235,8 @@
                         <a href="https://www.instagram.com/h2h.stationery/" target="_blak" class="text-white"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/6281390892522" target="_blank"
+                        class="text-white"><iclass="fab fa-whatsapp fa-lg"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6">
