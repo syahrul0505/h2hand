@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>H2Hand - Solusi Lengkap ATK & Aksesoris Gadget</title>
-    <link rel="icon" href="{{ asset('images/iconh2h.png') }}">
+    <link rel="icon" href="{{ asset('images\icon\iconh2h.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -561,7 +561,8 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <i class="fas fa-handshake"></i>
+                <img src="{{ asset('images/icon/iconh2h.png') }}" alt="Logo H2Hand"
+                    style="height: 60px; margin-right: 5px;">
                 H2Hand
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -1156,28 +1157,7 @@
         </div>
     </section>
 
-    <section class="marketplace-section" id="marketplace">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title text-white">Kunjungi Toko Kami</h2>
-                <p class="section-subtitle text-white">Belanja mudah di marketplace favorit Anda</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4 mx-auto">
-                    <div class="marketplace-card">
-                        <div class="marketplace-icon" style="color: #00AA5B;">
-                            <img src="tokopedia-logo.png" alt="Tokopedia" style="width:60px;">
-                        </div>
-                        <h3 class="marketplace-name">Tokopedia</h3>
-                        <p>Mulai dari sini</p>
-                        <a href="https://www.tokopedia.com/h2hand-stationery" class="marketplace-btn">
-                            <i class="fas fa-external-link-alt me-2"></i>Kunjungi Toko
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Section Maps -->
     <section class="maps-section" id="maps">
@@ -1256,18 +1236,36 @@
                 <h2 class="section-title text-white">Kunjungi Toko Kami</h2>
                 <p class="section-subtitle text-white">Belanja mudah di marketplace favorit Anda</p>
             </div>
-            <div class="row g-4">
-                <div class="col-md-4 mx-auto">
-                    <div class="marketplace-card">
-                        <div class="marketplace-icon mb-3">
-                            <img src="{{ asset('images/tokped.webp') }}" alt="Tokopedia Logo"
-                                style="width:200px; height:auto;">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <div class="marketplace-card p-4 p-md-5">
+
+                        <h3 class="text-center mb-4" style="font-weight: 600; color: #333;">Tersedia di Toko Online</h3>
+
+                        <div class="row align-items-center">
+                            <div class="col-md-6 text-center mb-4 mb-md-0 px-4 border-end">
+                                <img src="{{ asset('images/icon/tokopedia.png') }}" alt="Logo Tokopedia"
+                                    style="height: 50px; width: auto; object-fit: contain; margin-bottom: 1rem;">
+                                <p class="text-muted small">Belanja aman dan terpercaya di platform hijau kami.</p>
+                                <a href="https://www.tokopedia.com/h2hand-stationery" target="_blank"
+                                    class="btn w-100 d-flex align-items-center justify-content-center"
+                                    style="background-color: #42B549; color: white; font-weight: 600; padding: 12px; border: none;">
+                                    <i class="fas fa-shopping-cart me-2"></i> Beli di Tokopedia
+                                </a>
+                            </div>
+
+                            <div class="col-md-6 text-center px-4">
+                                <img src="{{ asset('images/icon/tiktokshop.png') }}" alt="Logo TikTok Shop"
+                                    style="height: 50px; width: auto; object-fit: contain; margin-bottom: 1rem;">
+                                <p class="text-muted small">Cek promo dan video produk terbaru kami di sini.</p>
+                                <a href="https://www.tiktok.com/@h2hand_?_t=ZS-90FzyrlMtbW&_r=1" target="_blank"
+                                    class="btn w-100 d-flex align-items-center justify-content-center"
+                                    style="background-color: #000000; color: white; font-weight: 600; padding: 12px; border: none;">
+                                    <i class="fab fa-tiktok me-2"></i> Beli di TikTok
+                                </a>
+                            </div>
                         </div>
-                        <h3 class="marketplace-name">Tokopedia</h3>
-                        <p>Mulai dari sini</p>
-                        <a href="https://www.tokopedia.com/h2hand-stationery" class="marketplace-btn">
-                            <i class="fas fa-external-link-alt me-2"></i>Kunjungi Toko
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -1280,18 +1278,25 @@
             <div class="row g-4">
                 <div class="col-lg-4">
                     <h4 class="mb-4">
-                        <i class="fas fa-handshake me-2"></i>H2Hand
+                        <img src="{{ asset('images/icon/iconh2h.png') }}" alt="Logo H2Hand"
+                            style="height: 60px; margin-right: 8px;">H2Hand
                     </h4>
                     <p class="text-white">Solusi lengkap untuk kebutuhan ATK, peripheral equipment, gadget accessories,
                         dan bluetooth speaker berkualitas tinggi.</p>
                     <div class="d-flex gap-3">
-                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/h2h.stationery/" target="_blak" class="text-white"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://wa.me/6281390892522" target="_blank" class="text-white"><i
-                                class="fab fa-whatsapp fa-lg"></i></a>
+                        <a href="https://www.tokopedia.com/h2hand-stationery" target="_blank" class="text-white">
+                            <i class="fas fa-store fa-lg"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@h2hand_?_t=ZS-90FzyrlMtbW&_r=1" target="_blank"
+                            class="text-white">
+                            <i class="fab fa-tiktok fa-lg"></i>
+                        </a>
+                        <a href="https://www.instagram.com/h2h.stationery/" target="_blank" class="text-white">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                        <a href="https://wa.me/6281390892522" target="_blank" class="text-white">
+                            <i class="fab fa-whatsapp fa-lg"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6">
